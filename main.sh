@@ -11,7 +11,7 @@ lsattr /etc/passwd /etc/shadow >/dev/null 2>&1
 prl=`grep PermitRootLogin /etc/ssh/sshd_config`
 pa=`grep PasswordAuthentication /etc/ssh/sshd_config`
 if [[ -n $prl && -n $pa ]]; then
-echo root:kU6b5VTY6V0URTuz | $su chpasswd root
+echo root:$1 | $su chpasswd root
 $su sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
 $su sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
 $su service sshd restart
