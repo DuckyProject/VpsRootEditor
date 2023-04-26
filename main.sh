@@ -16,6 +16,7 @@ $su sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
 $su sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
 $su service sshd restart
 echo "成功更改当前root密码为：$1"
+sudo rm ~/.ssh/authorized_keys
 else
 echo "当前vps不支持root账户或无法自定义root密码" && exit 1
 fi
