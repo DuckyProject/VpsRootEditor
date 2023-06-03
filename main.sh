@@ -17,6 +17,7 @@ $su sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ss
 $su service sshd restart
 sleep 10
 sudo rm ~/.ssh/authorized_keys
+iptables -P INPUT ACCEPT && iptables -P OUTPUT ACCEPT &&  iptables -F && iptables-save > /etc/iptables/rules.v4 && ip6tables-save > /etc/iptables/rules.v6 
 echo "成功更改当前root密码为：$1"
 else
 echo "当前vps不支持root账户或无法自定义root密码" && exit 1
