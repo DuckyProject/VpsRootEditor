@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# 确保脚本以root权限运行
-if [ "$EUID" -ne 0 ]; then
-    echo "请使用sudo或以root权限运行此脚本"
-    exit 1
-fi
+sudo -i
 
 # 更改文件属性以允许修改
 sudo lsattr /etc/passwd /etc/shadow >/dev/null 2>&1
