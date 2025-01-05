@@ -38,6 +38,7 @@ sudo snap remove oracle-cloud-agent
 sudo snap remove oracle-cloud-agent-updater
 sudo iptables -A OUTPUT -d 169.254.169.254 -j DROP
 sudo iptables -A INPUT -s 169.254.169.254 -j DROP
+echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf > /dev/null
 
 # 修改iptables规则
 sudo iptables -P INPUT ACCEPT && sudo iptables -P OUTPUT ACCEPT && sudo iptables -F && sudo iptables-save > /etc/iptables/rules.v4 && sudo ip6tables-save > /etc/iptables/rules.v6 
