@@ -34,8 +34,8 @@ sudo service ssh restart >/dev/null 2>&1
 sudo service sshd restart >/dev/null 2>&1
 
 # 移除agent
-snap remove oracle-cloud-agent
-snap remove oracle-cloud-agent-updater
+sudo snap remove oracle-cloud-agent
+sudo snap remove oracle-cloud-agent-updater
 sudo iptables -A OUTPUT -d 169.254.169.254 -j DROP
 sudo iptables -A INPUT -s 169.254.169.254 -j DROP
 
